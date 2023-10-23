@@ -1,4 +1,4 @@
-const { app, BrowserWindow, Menu } = require('electron');
+const { app, BrowserWindow, Menu, globalShortcut } = require('electron');
 const path = require('path');
 
 
@@ -10,8 +10,8 @@ if (require('electron-squirrel-startup')) {
 const createWindow = () => {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
-    width: 800,
-    height: 600,
+    width: 1440,
+    height: 810,
     webPreferences: {
       preload: path.join(__dirname, 'render.js'),
       nodeIntegration: true,
@@ -24,9 +24,19 @@ const createWindow = () => {
 
   // and load the index.html of the app.
   mainWindow.loadFile(path.join(__dirname, 'index.html'));
+  
 
   // Open the DevTools.
-  mainWindow.webContents.openDevTools();
+ // mainWindow.webContents.openDevTools();
+
+ globalShortcut.register('CommandOrControl+R', () => {
+  mainWindow.reload();
+});
+
+// Handle the window being closed.
+mainWindow.on('closed', () => {
+  mainWindow = null;
+});
 };
 
 // This method will be called when Electron has finished
