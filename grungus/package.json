@@ -2,17 +2,18 @@
   "name": "grungus",
   "productName": "grungus",
   "version": "1.0.0",
-  "description": "My Electron application description",
+  "description": "A Electron based Video-Player",
   "main": "src/index.js",
   "scripts": {
     "start": "electron-forge start",
     "package": "electron-forge package",
     "make": "electron-forge make",
     "publish": "electron-forge publish",
-    "lint": "echo \"No linting configured\""
+    "lint": "echo \"No linting configured\"",
+    "start:dev": "electron -r electron-reloader ."
   },
   "keywords": [],
-  "author": "kian",
+  "author": "kianabel",
   "license": "MIT",
   "dependencies": {
     "electron-forge": "^5.2.4",
@@ -25,6 +26,12 @@
     "@electron-forge/maker-squirrel": "^6.4.2",
     "@electron-forge/maker-zip": "^6.4.2",
     "@electron-forge/plugin-auto-unpack-natives": "^6.4.2",
-    "electron": "27.0.2"
+    "electron": "27.0.2",
+    "electron-builder": "^24.6.4",
+    "electron-reloader": "^1.2.3"
+  },
+  "win": {
+    "target": "nsis",
+    "icon": "build/icon.ico"
   }
 }
