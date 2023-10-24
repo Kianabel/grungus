@@ -34,6 +34,13 @@ body {
   color: #fff;
   padding: 10px;
   display: none; /* Initially hidden */
+  z-index: 20;
+}
+
+#trigger-area {
+  width: 100px;
+  height: 30px;
+  background-color: aqua;
 }
 
 #menu ul {
@@ -52,4 +59,7 @@ body {
 
 .hidden {
   display: none;
+}
+#trigger-area:hover + #menu {
+  display: block;
 }
