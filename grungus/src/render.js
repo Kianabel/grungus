@@ -3,6 +3,7 @@ const { ipcRenderer } = require('electron');
 document.addEventListener('DOMContentLoaded', () => {
   const videoInput = document.getElementById('video-input');
   const videoPlayer = document.getElementById('video-player');
+  const menu = document.getElementById('menu');
 
   videoInput.addEventListener('change', (event) => {
     const videoPath = event.target.files[0].path;
@@ -16,6 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function resizeVideoPlayer() {
     videoPlayer.style.width = window.innerWidth + 'px';
     videoPlayer.style.height = window.innerHeight + 'px';
+    menu.style.width = videoPlayer.offsetWidth + 'px';
   }
   
   // Call the function on page load
@@ -36,16 +38,3 @@ document.addEventListener('DOMContentLoaded', () => {
     videoPlayer.volume = 0.05;
   });
 });
-document.addEventListener('DOMContentLoaded', () => {
-  const menu = document.getElementById('menu');
-  const menuTrigger = document.getElementById('menu-trigger');
-
-  menuTrigger.addEventListener('click', () => {
-    if (menu.style.display === 'block') {
-      menu.style.display = 'none';
-    } else {
-      menu.style.display = 'block';
-    }
-  });
-});
-
