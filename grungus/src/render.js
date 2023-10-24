@@ -36,3 +36,16 @@ document.addEventListener('DOMContentLoaded', () => {
     videoPlayer.volume = 0.05;
   });
 });
+document.addEventListener('DOMContentLoaded', () => {
+  const menu = document.getElementById('menu');
+  const menuTrigger = document.getElementById('menu-trigger');
+
+  menuTrigger.addEventListener('click', () => {
+    if (menu.style.display === 'block') {
+      menu.style.display = 'none';
+    } else {
+      menu.style.display = 'block';
+    }
+  });
+});
+
