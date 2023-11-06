@@ -28,7 +28,7 @@ const createWindow = () => {
   
 
   // Open the DevTools.
- // mainWindow.webContents.openDevTools();
+  mainWindow.webContents.openDevTools();
 
  globalShortcut.register('CommandOrControl+R', () => {
   mainWindow.reload();
